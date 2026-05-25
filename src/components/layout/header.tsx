@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 import { navItems } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/container";
@@ -50,32 +51,55 @@ function Header() {
 }
 
 function MobileNav() {
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    if (open) {
+      document.addEventListener("mousedown", handler);
+    }
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
 
   return (
-    <details className="group relative">
-      <summary className="list-none cursor-pointer font-mono text-xs tracking-wider uppercase">
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="font-mono text-xs tracking-wider uppercase cursor-pointer"
+      >
         Menu
-      </summary>
-      <nav className="absolute right-0 top-full mt-2 w-48 border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-lg">
-        <div className="flex flex-col gap-3">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "font-mono text-xs tracking-wider uppercase transition-opacity hover:opacity-70",
-                pathname === item.href
-                  ? "text-[var(--color-text)]"
-                  : "text-[var(--color-text-tertiary)]"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
-    </details>
+      </button>
+      {open && (
+        <nav className="absolute right-0 top-full mt-2 w-48 border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-lg">
+          <div className="flex flex-col gap-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "font-mono text-xs tracking-wider uppercase transition-opacity hover:opacity-70",
+                  pathname === item.href
+                    ? "text-[var(--color-text)]"
+                    : "text-[var(--color-text-tertiary)]"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
+    </div>
   );
 }
 
