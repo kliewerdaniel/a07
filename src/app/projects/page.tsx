@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/motion/reveal";
 import { generateMetadata } from "@/lib/metadata";
@@ -181,20 +180,6 @@ export default function ProjectsPage() {
                               </li>
                             ))}
                           </ul>
-                        </div>
-                      )}
-
-                      {project.links.length > 0 && (
-                        <div className="mt-8 flex gap-4">
-                          {project.links.map((link) => (
-                            <a
-                              key={link.label}
-                              href={link.url}
-                              className="font-mono text-xs uppercase tracking-wider border border-[var(--color-border)] px-4 py-2 hover:bg-[var(--color-surface-elevated)] transition-all"
-                            >
-                              {link.label} →
-                            </a>
-                          ))}
                         </div>
                       )}
                     </div>
