@@ -44,6 +44,7 @@ export default function RootLayout({
       className={`${serif.variable} ${sans.variable} ${mono.variable}`}
     >
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="alternate" type="application/rss+xml" title="Daniel Kliewer's Blog" href="/rss.xml" />
       </head>
       <body className="min-h-screen bg-[var(--color-surface)] text-[var(--color-text)] antialiased">
