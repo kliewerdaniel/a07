@@ -6,6 +6,7 @@ import { generateBlogMetadata } from "@/lib/blog-metadata";
 import { renderMarkdown } from "@/lib/markdown";
 import { ReadingProgress } from "@/components/blog/reading-progress";
 import { CodeCopyButtons } from "@/components/blog/code-copy-buttons";
+import { ScrollToTop } from "@/components/blog/scroll-to-top";
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
@@ -31,6 +32,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <article className="min-h-screen">
       <ReadingProgress />
       <CodeCopyButtons />
+      <ScrollToTop />
 
       <div className="py-24 md:py-32 border-b border-[var(--color-border)]">
         <Container>
