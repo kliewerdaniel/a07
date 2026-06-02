@@ -22,6 +22,10 @@ twitter:image: "/images/open-source-ai-accessibility.png"
 
 <iframe src="https://www.youtube.com/embed/-qL7OtkNQ80" title="objective03 demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<br>
+
+[Free Apple Silicon Download](https://6340588028610.gumroad.com/l/qkxkt)
+
 # objective03: A Locally-Run Autonomous News Ingestion and Contradiction Tracking System
 
 ## Architecture Overview: From RSS Feeds to Audio Broadcasts on Consumer Hardware
@@ -297,5 +301,7 @@ Built by Daniel Kliewer (kliewerdaniel). Follows the local-first philosophy esta
 ---
 
 **Get it at:** [github.com/kliewerdaniel/objective](https://github.com/kliewerdaniel/objective)
+
+[Free Apple Silicon Download](https://6340588028610.gumroad.com/l/qkxkt)
 
 *The compute shortage is a billing shortage. Your laptop already has the silicon.*
