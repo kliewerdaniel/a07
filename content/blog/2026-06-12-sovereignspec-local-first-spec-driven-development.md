@@ -20,7 +20,7 @@ twitter:image: "/images/ComfyUI_00200_.png"
 ---
 ![image](/images/ComfyUI_00200_.png)
 
-
+[Project initiated on Github](https://github.com/kliewerdaniel/sovereignSpec)
 
 # Project Proposal: SovereignSpec — Local-First Spec-Driven Development
 
